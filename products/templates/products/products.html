@@ -1,0 +1,20 @@
+{% extends 'base.html'%}
+
+{% block content %}
+
+<div class="container">
+    {% for post in posts %}
+    <div class="card">
+
+        <div class="card-content">
+            <div class="content">
+                <b>{{ product.name }}</b> | {{ product.description }}
+                <br>
+
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

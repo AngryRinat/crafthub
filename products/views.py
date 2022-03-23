@@ -5,6 +5,7 @@ from products.models import Product
 
 
 class ProductListView(ListView):
+
     model = Product
 
     template_name = 'products/base.html'

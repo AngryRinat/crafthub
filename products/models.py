@@ -10,7 +10,3 @@ class Product(models.Model):
     def __str__(self):
         return self.name
 
-    def get_context_data(self, *args, **kwargs):
-        context = dict()
-        context["products"] = Product.objects.all()
-        return context

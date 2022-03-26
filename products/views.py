@@ -9,6 +9,7 @@ class ProductListView(ListView):
     model = Product
     template_name = 'products/products.html'
 
+
     def __str__(self):
         return self.name
 

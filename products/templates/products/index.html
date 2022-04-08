@@ -1,0 +1,24 @@
+{% extends 'products/base.html' %}
+{% load static %}
+
+{% block content %}
+<main>
+        <aside>
+            Категории
+        </aside>
+        {% for p in productlist %}
+        <div class="goods">
+            <h2 class="goods-category">Категория товаров</h2>
+            <div class="goods-item">
+                <img src="http://dummyimage.com/120" alt="" class="goods-item__img">
+                <div class="goods-item__txt">
+                <span class="goods-item__name">{{ p.name }}</span>
+                <p class="goods-item__desc">{{p.description}} </p>
+                <a href="" class="goods-item__btn">Подробнее</a>
+            </div>
+            </div>
+        </div>
+        {% endfor %}
+    </main>
+
+{% endblock %}

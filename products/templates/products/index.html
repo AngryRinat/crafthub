@@ -3,27 +3,30 @@
 
 {% block content %}
 <main>
-        <aside>
-            {% for c in categorylist %}
-                {{c.name}}
-            {% endfor %}
-        </aside>
-        {% for p in productlist %}
-        <div class="goods">
-            <h2 class="goods-category">Категория товаров</h2>
-            <div class="goods-item">
-                {% if p.image %}
-                <img src="{{ p.image.url }}" alt="" class="goods-item__img">
+    <aside>
+        {% for c in categorylist %}
+        <span>
+        <a href="category/{{c.slug}}" class="goods-item__btn">{{c.name}}</a>
+        </span>
+        {% endfor %}
+    </aside>
 
-                {% endif %}
-                <div class="goods-item__txt">
+    <div class="goods">
+        <h2 class="goods-category">Категория товаров</h2>
+        {% for p in productlist %}
+        <div class="goods-item">
+            {% if p.image %}
+            <img src="{{ p.image.url }}" alt="" class="goods-item__img">
+            {% endif %}
+            <div class="goods-item__txt">
                 <span class="goods-item__name">{{ p.name }}</span>
                 <p class="goods-item__desc">{{p.description}} </p>
-                <a href="" class="goods-item__btn">Подробнее</a>
-            </div>
+                <a href="product/{{p.slug}}" class="goods-item__btn">Подробнее</a>
             </div>
         </div>
         {% endfor %}
-    </main>
+    </div>
+
+</main>
 
 {% endblock %}

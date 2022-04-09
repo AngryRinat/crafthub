@@ -25,15 +25,21 @@ header {
 }
 
 main {
-    background-color:lightsalmon;
+    background-image:
+    url('img/wallpaper.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
     flex:  1 1 auto;
     display: flex;
+
 }
 
 aside {
     border: 1px solid green;
     min-width: 20%;
     padding: 10px;
+    display: flex;
+    flex-direction: column;
 }
 .goods {
     padding: 10px;
@@ -42,6 +48,7 @@ aside {
     border: 1px solid red;
     display: flex;
     margin-top: 10px;
+    background-color: white;
 }
 .goods-item__txt {
     border: 1px solid black;

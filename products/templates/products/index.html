@@ -4,13 +4,18 @@
 {% block content %}
 <main>
         <aside>
-            Категории
+            {% for c in categorylist %}
+                {{c.name}}
+            {% endfor %}
         </aside>
         {% for p in productlist %}
         <div class="goods">
             <h2 class="goods-category">Категория товаров</h2>
             <div class="goods-item">
-                <img src="http://dummyimage.com/120" alt="" class="goods-item__img">
+                {% if p.image %}
+                <img src="{{ p.image.url }}" alt="" class="goods-item__img">
+
+                {% endif %}
                 <div class="goods-item__txt">
                 <span class="goods-item__name">{{ p.name }}</span>
                 <p class="goods-item__desc">{{p.description}} </p>

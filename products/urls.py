@@ -6,7 +6,5 @@ app_name = 'products'
 
 urlpatterns = [
     path('', ProductListView.as_view(), name='index'),
-    path ('product')
-
-
+    path ('product/', ProductDetailView.as_view(), name='product')
 ]

@@ -40,7 +40,7 @@ aside {
 }
 .goods-item {
     border: 1px solid red;
-    display: flex; 
+    display: flex;
     margin-top: 10px;
 }
 .goods-item__txt {
@@ -58,7 +58,11 @@ aside {
    
 }
 
+.goods-item__img {
+    width: 300px;
+}
+
 footer {
-    background-color: BLACK; 
+    background-color: green;
     color: white;
 }

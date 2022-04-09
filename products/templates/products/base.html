@@ -11,11 +11,13 @@
     <title>{{ title }}</title>
 </head>
 <body>
-    <div class="wrapper">
+<div class="wrapper">
     <header>
         Тут хедер
     </header>
-{% block content %} {% endblock %}
+    <main>
+        {% block content %} {% endblock %}
+    </main>
     <footer>
         Тут футер
     </footer>

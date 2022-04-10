@@ -3,8 +3,8 @@
 
 {% block content %}
 
-<div class="goods">
-            <h2 class="goods-category">Категория товаров</h2>
+<div class="goods-detail">
+            <h2 class="goods-category">{{ title }}</h2>
             <div class="goods-item">
                 {% if product.image %}
                  <img src="{{ product.image.url }}" alt="" class="goods-item__img">

@@ -1,11 +1,11 @@
 * {
-	padding: 0;
-	margin: 0;
-	border: 0;
-	}
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
 
-html,body {   
-  height: 100%;
+html, body {
+    height: 100%;
 }
 
 bode {
@@ -20,16 +20,16 @@ bode {
     flex-direction: column;
     min-height: 100%;
 }
+
 header {
     background-color: aquamarine;
 }
 
 main {
-    background-image:
-    url('img/wallpaper.jpg');
+    background-image: url('img/wallpaper.jpg');
     background-size: cover;
     background-repeat: no-repeat;
-    flex:  1 1 auto;
+    flex: 1 1 auto;
     display: flex;
 
 }
@@ -41,15 +41,18 @@ aside {
     display: flex;
     flex-direction: column;
 }
+
 .goods {
     padding: 10px;
 }
+
 .goods-item {
     border: 1px solid red;
     display: flex;
     margin-top: 10px;
     background-color: white;
 }
+
 .goods-item__txt {
     border: 1px solid black;
     display: flex;
@@ -57,19 +60,26 @@ aside {
     align-items: stretch;
     padding-left: 10px;
 }
+
 .goods-item__name {
     font-weight: 600;
 }
+
 .goods-item__desc {
-    flex:  1 1 auto;
-   
+    flex: 1 1 auto;
+
 }
 
 .goods-item__img {
     width: 300px;
 }
 
+.goods-detail {
+    margin: 0 auto;
+}
+
 footer {
     background-color: green;
     color: white;
 }
+

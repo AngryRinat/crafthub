@@ -1,4 +1,5 @@
 from django.db import models
+from django.http import HttpResponseRedirect
 from django.urls import reverse, reverse_lazy
 
 
@@ -15,6 +16,9 @@ class Category(models.Model):
         verbose_name = 'Категория'
         verbose_name_plural = 'Категории'
 
+    def get_absolute_url(self):
+        return reverse('products:category', kwargs={'cat_slug': self.slug})
+
 
 class Product(models.Model):
     name = models.CharField(max_length=50)
@@ -28,8 +32,8 @@ class Product(models.Model):
     def __str__(self):
         return self.name
 
-    # def get_absolute_url(self):
-    #     return reverse('product', kwargs={'product_slug': self.slug})
+    def get_absolute_url(self):
+        return reverse('products:product', kwargs={'product_slug': self.slug})
 
     class Meta:
         verbose_name = 'Продукт'

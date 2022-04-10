@@ -8,7 +8,7 @@ html, body {
     height: 100%;
 }
 
-bode {
+body {
     min-height: 100vh;
     scroll-behavior: smooth;
     text-rendering: optimizeSpeed;
@@ -23,7 +23,20 @@ bode {
 
 header {
     background-color: aquamarine;
+    display: flex;
+    justify-content: space-between;
 }
+
+.navigation-menu {
+    display: flex;
+}
+
+.navigation-menu > li {
+   list-style-type: none;
+   margin: 15px;
+}
+
+
 
 main {
     background-image: url('img/wallpaper.jpg');
@@ -41,6 +54,7 @@ aside {
     display: flex;
     flex-direction: column;
 }
+
 
 .goods {
     padding: 10px;

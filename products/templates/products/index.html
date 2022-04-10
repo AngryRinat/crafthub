@@ -6,7 +6,7 @@
     <aside>
         {% for c in categorylist %}
         <span>
-        <a href=" category/{{c.slug}} " class="goods-item__btn">{{c.name}}</a>
+        <a href="{{c.get_absolute_url}}" class="goods-item__btn">{{c.name}}</a>
         </span>
         {% endfor %}
     </aside>
@@ -21,7 +21,7 @@
             <div class="goods-item__txt">
                 <span class="goods-item__name">{{ p.name }}</span>
                 <p class="goods-item__desc">{{p.description}} </p>
-                <a href="product/{{p.slug}}" class="goods-item__btn">Подробнее</a>
+                <a href="{{ p.get_absolute_url }}" class="goods-item__btn">Подробнее</a>
             </div>
         </div>
         {% endfor %}

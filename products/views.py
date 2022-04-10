@@ -55,4 +55,3 @@ class ProductCategory(ListView):
         context['title'] = 'Категория -' + str(context['productlist'][0].cat)
         context['menu'] = menu
         return context
-    # + str(context['categorylist'][0].cat)

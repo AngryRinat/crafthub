@@ -24,26 +24,25 @@ class ProductListView(DataMixin, ListView):
 
 
 
-class ProductDetailView(DetailView):
+class ProductDetailView(DataMixin, DetailView):
     model = Product
     template_name = 'products/product.html'
     slug_url_kwarg = 'product_slug'
     context_object_name = 'product'
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
 
-        def get_context_data(self, *, object_list=None, **kwargs):
+
+    def get_context_data(self, *, object_list=None, **kwargs):
             context = super().get_context_data(**kwargs)
-            c_def = self.get_user_context(title=context['title'])
+            c_def = self.get_user_context(title='Просмотр карточки')
             context['productlist'] = Product.objects.all()
             context['categorylist'] = Category.objects.all()
             return dict(list(context.items()) + list(c_def.items()))
 
-        return context
 
 
-class ProductCategory(ListView):
+
+class ProductCategory(DataMixin, ListView):
     model = Product
     template_name = 'products/index.html'
     context_object_name = 'productlist'
@@ -54,5 +53,4 @@ class ProductCategory(ListView):
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
         context['title'] = 'Категория -' + str(context['productlist'][0].cat)
-        context['menu'] = menu
         return context

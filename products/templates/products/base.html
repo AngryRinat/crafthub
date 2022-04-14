@@ -15,12 +15,16 @@
     <header>
         <ul class="navigation-menu">
             <li><a href="#" class="goods-item__btn">Меню</a></li>
-            <li><a href="#" class="goods-item__btn">Выйти</a></li>
+            <li><a href="#" class="goods-item__btn">Меню</a></li>
         </ul>
 
         <ul class="navigation-menu">
-            <li><a href="#" class="goods-item__btn">Меню</a></li>
-            <li><a href="{% url 'users:register' %}" class="goods-item__btn">Выйти</a></li>
+            {% if request.user.is_authenticated %}
+            <li><a href="{% url 'users:logout' %}" class="goods-item__btn">Выйти</a></li>
+            {% else %}
+            <li><a href="{% url 'users:login' %}" class="goods-item__btn">Логин</a></li>
+            <li><a href="{% url 'users:register' %}" class="goods-item__btn">Регистрация</a></li>
+            {% endif %}
         </ul>
     </header>
     <main>

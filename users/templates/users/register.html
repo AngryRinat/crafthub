@@ -7,7 +7,22 @@
 
 <form method="post">
     {% csrf_token %}
-    {{ form.as_p }}
+    <div class="form-group">
+        <label class="goods-item">Имя</label>
+        {{ form.first_name }}
+    </div>
+    <div class="form-group">
+        <label class="goods-item">Почта</label>
+        {{ form.last_name }}
+    </div>
+    <div class="form-group">
+        <label class="goods-item">Пароль</label>
+        {{ form.password1 }}
+    </div>
+    <div class="form-group">
+        <label class="goods-item">Подтвердите пароль</label>
+        {{ form.password2 }}
+    </div>
     <button type="submit">Регистрация</button>
 
 </form>

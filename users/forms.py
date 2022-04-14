@@ -4,7 +4,7 @@ from users.models import User
 
 
 class UserRegistrationForm(UserCreationForm):
-    username = forms.CharField(widget=forms.TextInput(attrs={
+    username = forms.CharField(label='Имя', widget=forms.TextInput(attrs={
         'class': 'form-control py-4', 'placeholder': 'Введите имя пользователя'}))
     email = forms.CharField(widget=forms.EmailInput(attrs={
         'class': 'form-control py-4', 'placeholder': 'Введите адрес эл. почты'}))

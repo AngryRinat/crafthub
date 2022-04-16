@@ -12,4 +12,4 @@ class Basket(models.Model):
     created_tampstamp = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f'Корзина для {self.user.username} | Продукт {self.product.name}'
+        return f'Корзина для {self.user.name} | Продукт {self.product.name}'

@@ -4,7 +4,7 @@
 {% block content %}
 
 <div class="goods">
-        <h2 class="goods-category">{{ title }}</h2>
+        <h2 class="goods-category">{{ title }} </h2>
         {% for b in basketlist %}
         <div class="goods-item paginator">
             {% if b.product.image %}
@@ -12,7 +12,7 @@
             {% endif %}
             <div class="goods-item__txt">
                 <span class="goods-item__name">{{ b.product.name }}</span>
-                <p class="goods-item__desc">{{b.qty}} </p>
+                <p class="goods-item__desc">Количество: {{b.qty}} </p>
                 <a href="#" class="goods-item__btn">Подробнее</a>
             </div>
         </div>

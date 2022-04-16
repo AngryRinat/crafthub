@@ -9,6 +9,7 @@ from users.models import User
 from django.contrib.auth.views import LoginView, LogoutView
 
 
+
 class RegisterUser(DataMixin, CreateView):
     form_class = UserRegistrationForm
     model = User

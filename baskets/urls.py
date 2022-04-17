@@ -1,9 +1,9 @@
 from django.urls import path
 
-from baskets.views import userbaskets
+from baskets.views import UserBaskets
 
 app_name = 'baskets'
 
 urlpatterns = [
-    path('', userbaskets, name='baskets'),
+    path('', UserBaskets.as_view(), name='baskets'),
 ]

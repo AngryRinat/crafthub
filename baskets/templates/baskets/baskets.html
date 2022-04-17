@@ -5,7 +5,7 @@
 
 <div class="goods">
         <h2 class="goods-category">{{ title }} </h2>
-        {% for b in baskets %}
+        {% for b in basketlist %}
         <div class="goods-item paginator">
             {% if b.product.image %}
             <img src="{{ b.product.image.url }}" alt="" class="goods-item__img">

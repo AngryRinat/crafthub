@@ -13,7 +13,8 @@
     </aside>
 
     <div class="goods">
-        <h2 class="goods-category">Категория товаров</h2>
+        {% if productlist %}
+        <h2 class="goods-category">Просмотр товаров</h2>
         {% for p in productlist %}
         <div class="goods-item paginator">
             {% if p.image %}
@@ -26,6 +27,11 @@
             </div>
         </div>
         {% endfor %}
+        {% else %}
+        <h2 class="goods-category">В этой категории пока ничего нет!</h2>
+        {% endif %}
+
+
 
     </div>
 

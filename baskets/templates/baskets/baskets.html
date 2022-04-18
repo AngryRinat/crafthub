@@ -5,17 +5,25 @@
 
 <div class="goods">
         <h2 class="goods-category">{{ title }} </h2>
+        {% if basketlist %}
         {% for b in basketlist %}
-        <div class="goods-item paginator">
+        <div class="goods-item">
             {% if b.product.image %}
             <img src="{{ b.product.image.url }}" alt="" class="goods-item__img">
             {% endif %}
             <div class="goods-item__txt">
                 <span class="goods-item__name">{{ b.product.name }}</span>
                 <p class="goods-item__desc">Количество: {{b.qty}} </p>
+                <a href="{% url 'baskets:basket_remove' b.id %}" class="goods-item__btn">Удалить из корзины</a>
                 <a href="#" class="goods-item__btn">Подробнее</a>
             </div>
+            {% endfor %}
+        {% else %}
+            <p class="goods-item__desc">Ваша корзина пуста! </p>
+        {% endif %}
+
+
         </div>
-    {% endfor %}
+
 </div>
 {% endblock %}

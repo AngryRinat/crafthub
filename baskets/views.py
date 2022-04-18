@@ -33,5 +33,11 @@ def basket_add(request, product_id):
 
 @login_required
 def basket_remove(request, id):
-    Basket.objects.get(id=id).delete()
+
+    basket = Basket.objects.get(id=id)
+    if basket.qty>1:
+        basket.qty -= 1
+        basket.save()
+    else:
+        basket.delete()
     return HttpResponseRedirect(request.META.get('HTTP_REFERER'))

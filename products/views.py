@@ -52,5 +52,5 @@ class ProductCategory(DataMixin, ListView):
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['title'] = 'Категория -' + str(context['productlist'][0].cat)
+        context['title'] = 'Категория -'
         return context

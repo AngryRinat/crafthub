@@ -14,12 +14,12 @@
 <div class="wrapper">
     <header>
         <ul class="navigation-menu">
-            <li><a href="{% url 'baskets:baskets' %}" class="goods-item__btn">Корзина</a></li>
             <li><a href="{% url 'products:index' %}" class="goods-item__btn">Главная</a></li>
         </ul>
 
         <ul class="navigation-menu">
             {% if request.user.is_authenticated %}
+            <li><a href="{% url 'baskets:baskets' %}" class="goods-item__btn">Корзина</a></li>
             <li><a href="{% url 'users:logout' %}" class="goods-item__btn">Выйти</a></li>
             {% else %}
             <li><a href="{% url 'users:login' %}" class="goods-item__btn">Логин</a></li>

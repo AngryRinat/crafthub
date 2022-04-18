@@ -16,7 +16,7 @@
         {% if productlist %}
         <h2 class="goods-category">Просмотр товаров</h2>
         {% for p in productlist %}
-        <div class="goods-item paginator">
+        <div class="goods-item">
             {% if p.image %}
             <img src="{{ p.image.url }}" alt="" class="goods-item__img">
             {% endif %}

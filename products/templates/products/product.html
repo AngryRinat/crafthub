@@ -12,6 +12,7 @@
                 <div class="goods-item__txt">
                 <span class="goods-item__name">{{ product.name }}</span>
                 <p class="goods-item__desc">{{product.description}} </p>
+                <a href="{% url 'products:index' %}" class="goods-item__btn">Добавить в корзину</a>
                 <a href="{% url 'products:index' %}" class="goods-item__btn">Вернуться к просмотру товаров</a>
             </div>
             </div>

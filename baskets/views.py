@@ -6,13 +6,11 @@ from users.models import User
 
 
 
-
-class UserBaskets(ListView):
-    model = Basket
-    template_name = 'baskets/baskets.html'
-
-    def get_context_data(self, *, object_list=None, **kwargs):
-        context = super().get_context_data(**kwargs)
-        user = User.objects.get(id=1)
-        context['basketlist'] = Basket.objects.filter(user=user)
-        return dict(list(context.items()))
+def basketapp(request):
+    basketlist = Basket.objects.filter(user=request.user)
+    title = f'Корзина для {request.user}'
+    context = {
+        'basketlist':basketlist,
+        'title': title
+    }
+    return render(request, 'baskets/baskets.html', context)

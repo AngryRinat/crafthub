@@ -23,6 +23,7 @@
                 <span class="goods-item__name">{{ p.name }}</span>
                 <p class="goods-item__desc">{{p.description}} </p>
                 <a href="{{ p.get_absolute_url }}" class="goods-item__btn">Подробнее</a>
+                <a href="{{ p.get_absolute_url }}" class="goods-item__btn">Добавить в корзину</a>
             </div>
         </div>
         {% endfor %}

@@ -12,7 +12,9 @@
                 <div class="goods-item__txt">
                 <span class="goods-item__name">{{ product.name }}</span>
                 <p class="goods-item__desc">{{product.description}} </p>
-                <a href="{% url 'baskets:basket_add' product_id %}" class="goods-item__btn">Добавить в корзину</a>
+                {% if user.is_authenticated %}
+                <a href="{% url 'baskets:basket_add' product.id %}" class="goods-item__btn">Добавить в корзину</a>
+                {% endif %}
                 <a href="{% url 'products:index' %}" class="goods-item__btn">Вернуться к просмотру товаров</a>
             </div>
             </div>

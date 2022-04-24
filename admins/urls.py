@@ -2,8 +2,8 @@ from django.urls import path
 
 from admins.views import *
 
-app_name = 'adminstaff'
+app_name = 'admins'
 
 urlpatterns = [
-    path('', adminstaff, name='index'),
+    path('', users_read, name='users_read'),
 ]

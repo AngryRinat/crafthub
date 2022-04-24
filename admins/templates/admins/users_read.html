@@ -1,0 +1,16 @@
+{% extends 'admins/base.html' %}
+{% load static %}
+
+{% block content %}
+{% for u in users %}
+<div class="goods-item">
+    <div class="goods-item__txt">
+        <span class="goods-item__name">{{ u.username }}</span>
+        <p class="goods-item__desc">{{u.first_name}} </p>
+        <span class="goods-item__name">{{ u.last_name }}</span>
+        <p class="goods-item__desc">{{u.email}} </p>
+        <a href="{{ p.get_absolute_url }}" class="goods-item__btn">Подробнее</a>
+    </div>
+</div>
+{% endfor %}
+{% endblock %}

@@ -3,6 +3,9 @@
 # https://github.com/selfedu-rus/django-lessons
 
 
+# https://bitbucket.org/hornsAndHoovesLLC/capcom   - Серегин проект для Валеры
+
+
 from django.shortcuts import HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 from django.template.loader import render_to_string

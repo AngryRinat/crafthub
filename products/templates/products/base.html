@@ -2,6 +2,10 @@
 
 <!DOCTYPE html>
 
+
+
+
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -21,6 +25,7 @@
             {% if request.user.is_authenticated %}
             <li><a href="{% url 'baskets:baskets' %}" class="goods-item__btn">Корзина</a></li>
             <li><a href="{% url 'users:logout' %}" class="goods-item__btn">Выйти</a></li>
+            <li><a href="{% url 'adminstaff:index' %}" class="goods-item__btn">Админ-панель</a></li>
             {% else %}
             <li><a href="{% url 'users:login' %}" class="goods-item__btn">Логин</a></li>
             <li><a href="{% url 'users:register' %}" class="goods-item__btn">Регистрация</a></li>

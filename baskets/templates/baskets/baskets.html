@@ -15,6 +15,7 @@
                 <span class="goods-item__name">{{ b.product.name }}</span>
                 <p class="goods-item__desc">Количество: {{b.qty}} </p>
                 <a href="{% url 'baskets:basket_remove' b.id %}" class="goods-item__btn">Удалить из корзины</a>
+                <a href="{% url 'baskets:basket_increase' b.id %}" class="goods-item__btn">Добавить в корзину</a>
                 <a href="#" class="goods-item__btn">Подробнее</a>
             </div>
             {% endfor %}

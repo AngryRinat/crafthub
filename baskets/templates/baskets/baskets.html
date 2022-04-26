@@ -14,7 +14,7 @@
             <div class="goods-item__txt">
                 <span class="goods-item__name">{{ b.product.name }}</span>
                 <p class="goods-item__desc">Количество: {{b.qty}} </p>
-                <a href="{% url 'baskets:basket_remove' b.id %}" class="goods-item__btn">Удалить из корзины</a>
+                <button onclick="basket_element_remove()" id="buttonremove" name='csrfmiddlewaretoken'>Click me</button>
                 <a href="{% url 'baskets:basket_increase' b.id %}" class="goods-item__btn">Добавить в корзину</a>
                 <a href="#" class="goods-item__btn">Подробнее</a>
             </div>

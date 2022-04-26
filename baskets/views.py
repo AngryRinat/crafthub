@@ -33,8 +33,8 @@ def basket_add(request, product_id):
         return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 
 
-def basket_remove(request, id):
-    basket = Basket.objects.get(id=id)
+def basket_remove(request):
+    basket = request
 
     if basket.qty > 1:
         basket.qty -= 1

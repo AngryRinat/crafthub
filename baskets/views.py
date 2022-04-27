@@ -34,13 +34,15 @@ def basket_add(request, product_id):
 
 
 def basket_remove(request):
-    basket = request
-
-    if basket.qty > 1:
-        basket.qty -= 1
-        basket.save()
-    else:
-        basket.delete()
+    # basket = request
+    #
+    # if basket.qty > 1:
+    #     basket.qty -= 1
+    #     basket.save()
+    # else:
+    #     basket.delete()
+    if request.is_ajax():
+        return JsonResponse()
 
     return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 

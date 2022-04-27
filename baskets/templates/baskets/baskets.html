@@ -14,7 +14,10 @@
             <div class="goods-item__txt">
                 <span class="goods-item__name">{{ b.product.name }}</span>
                 <p class="goods-item__desc">Количество: {{b.qty}} </p>
-                <button onclick="basket_element_remove()" id="buttonremove" name='csrfmiddlewaretoken'>Click me</button>
+
+
+                <button id="buttonremove">Click me</button>
+                {% csrf_token %}
                 <a href="{% url 'baskets:basket_increase' b.id %}" class="goods-item__btn">Добавить в корзину</a>
                 <a href="#" class="goods-item__btn">Подробнее</a>
             </div>
@@ -27,5 +30,7 @@
 {% endblock %}
 
 {% block js %}
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+        crossorigin="anonymous"></script>
 <script src="{% static 'js/basket.js' %}"></script>
 {% endblock %}

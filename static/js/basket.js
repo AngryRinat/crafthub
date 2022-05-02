@@ -1,52 +1,28 @@
+window.onload = function () {
+    const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value;
 
+    $('.goods').on('click', 'input[type="number"]', function () {
+        var t_href = event.target;
 
-    var csrf = $("input[name=csrfmiddlewaretoken]").val();
-
-    $(".goods-item__txt").click(function(){
         $.ajax({
-            type: 'POST',
-            url: 'basket_remove/',
-            data: { csrfmiddlewaretoken: csrf },
-            contentType: "application/json",
-            dataType: "json",
+            url: "/baskets/edit/" + t_href.name + "/" + t_href.value + "/",
             success: function (data) {
-                console.log("Data added!", data)}
-            });
-      });
+                $('.goods').html(data.result);
+            },
 
+        });
+        event.preventDefault();
+    });
 
+    $('#buttonremove').on('click', function() {
+        $.ajax({
+        type: 'POST',
+        data: {csrfmiddlewaretoken: csrftoken},
+        url: "/baskets/remove",
+        success: function (data) {
+                $('.goods').html(data.result)}
+        })
+        event.preventDefault();
+    })
+}
 
-
-
-
-// $.ajax({
-//     type: 'POST',
-//     url: 'baskets/basket_remove/',
-//     data: {'id':1},
-//     contentType: "application/json",
-//     dataType: "json",
-//     success: function(data) {
-//      console.log("Data added!", data);
-//     }
-//   });
-// });
-//
-// // var myObj = {
-// //         "name": $('#name').val(),
-// //         "drink": $('#drink').val()
-// // };
-// //
-// // var order = JSON.stringify(myObj);
-
-
-// $(document).on('submit', '#goods-item__btn', function (e) {
-//     e.preventDefault();
-//
-//     $.ajax({
-//         type: 'POST',
-//         url: "{% url 'baskets/basket_remove' %}
-//         success: function (response) {
-//             alert("Success")
-//         }
-//     })
-// })

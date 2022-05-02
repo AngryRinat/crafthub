@@ -1,6 +1,8 @@
+
 from products.utils import DataMixin
 from django.views.generic import ListView, DetailView
 from products.models import Product, Category
+
 
 
 
@@ -21,6 +23,7 @@ class ProductListView(DataMixin, ListView):
 
     def get_queryset(self):
         return Product.objects.all()
+
 
 
 

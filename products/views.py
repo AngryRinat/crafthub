@@ -8,21 +8,21 @@ from products.models import Product, Category
 
 
 
-class ProductListView(DataMixin, ListView):
+class ProductListView(ListView):
     paginate_by = 2
-
     model = Product
     template_name = 'products/index.html'
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
-        c_def = self.get_user_context(title='Главая страница')
         context['productlist'] = Product.objects.all()
         context['categorylist'] = Category.objects.all()
-        return dict(list(context.items()) + list(c_def.items()))
+        context['title'] = 'Главная страница'
+        return context
 
-    def get_queryset(self):
-        return Product.objects.all()
+    # def get_queryset(self):
+    #
+    #     return Product.objects.all()
 
 
 

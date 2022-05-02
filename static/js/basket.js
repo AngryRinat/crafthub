@@ -1,5 +1,5 @@
 window.onload = function () {
-    const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value;
+//    const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value;
 
     $('.goods').on('click', 'input[type="number"]', function () {
         var t_href = event.target;
@@ -14,15 +14,15 @@ window.onload = function () {
         event.preventDefault();
     });
 
-    $('#buttonremove').on('click', function() {
-        $.ajax({
-        type: 'POST',
-        data: {csrfmiddlewaretoken: csrftoken},
-        url: "/baskets/remove",
-        success: function (data) {
-                $('.goods').html(data.result)}
-        })
-        event.preventDefault();
-    })
+//    $('#buttonremove').on('click', function() {
+//        $.ajax({
+//        type: 'POST',
+//        data: {csrfmiddlewaretoken: csrftoken},
+//        url: "/baskets/remove",
+//        success: function (data) {
+//                $('.goods').html(data.result)}
+//        })
+//        event.preventDefault();
+//    })
 }
 

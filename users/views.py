@@ -4,13 +4,13 @@ from django.urls import reverse_lazy
 
 from products.utils import DataMixin
 from django.views.generic import CreateView
-from users.forms import UserRegistrationForm, AuthenticationForm
+from users.forms import UserRegistrationForm, UserLoginForm
 from users.models import User
 from django.contrib.auth.views import LoginView, LogoutView
 
 
 
-class RegisterUser(DataMixin, CreateView):
+class RegisterUser(CreateView):
     form_class = UserRegistrationForm
     model = User
     template_name = 'users/register.html'
@@ -22,14 +22,13 @@ class RegisterUser(DataMixin, CreateView):
         return redirect('products:index')
 
 
-class LoginUser(DataMixin, LoginView):
+class LoginUser(LoginView):
     template_name = 'users/login.html'
-    form_class = AuthenticationForm
+    form_class = UserLoginForm
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
-        c_def = self.get_user_context(title='Авторизация')
-        return dict(list(context.items()) + list(c_def.items()))
+        return context
 
     def get_success_url(self):
         return reverse_lazy('products:index')

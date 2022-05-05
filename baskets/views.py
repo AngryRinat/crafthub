@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 
@@ -17,7 +18,7 @@ def basketapp(request):
     }
     return render(request, 'baskets/baskets.html', context)
 
-
+@login_required
 def basket_add(request, product_id):
     product = Product.objects.get(id=product_id)
     baskets = Basket.objects.filter(user=request.user, product=product)
@@ -35,6 +36,8 @@ def basket_add(request, product_id):
 def is_ajax(request):
     return request.META.get('HTTP_X_REQUESTED_WITH') == 'XMLHttpRequest'
 
+
+@login_required
 def basket_edit(request, pk, qty):
     if is_ajax(request=request):
         quantity = int(qty)

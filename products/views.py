@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 
 from products.utils import DataMixin
 from django.views.generic import ListView, DetailView
@@ -27,7 +28,7 @@ class ProductListView(ListView):
 
 
 
-class ProductDetailView(DataMixin, DetailView):
+class ProductDetailView(DetailView):
     model = Product
     template_name = 'products/product.html'
     slug_url_kwarg = 'product_slug'
@@ -37,15 +38,14 @@ class ProductDetailView(DataMixin, DetailView):
 
     def get_context_data(self, *, object_list=None, **kwargs):
             context = super().get_context_data(**kwargs)
-            c_def = self.get_user_context(title='Просмотр карточки')
             context['productlist'] = Product.objects.all()
             context['categorylist'] = Category.objects.all()
-            return dict(list(context.items()) + list(c_def.items()))
+            return context
 
 
 
 
-class ProductCategory(DataMixin, ListView):
+class ProductCategory(ListView):
     model = Product
     template_name = 'products/index.html'
     context_object_name = 'productlist'

@@ -3,6 +3,11 @@
 
 {% block content %}
 
+<ul class="list-inline">
+  <li class="list-inline-item">Общая сумма {{ basketlist.0.total_sum }}</li>
+  <li class="list-inline-item">Общее количество покупок {{ basketlist.0.total_qty }}.</li>
+</ul>
+
 {% include 'baskets/basket-list.html' %}
 
 

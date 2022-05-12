@@ -1,21 +1,44 @@
-<div class="goods">
-    <h2 class="goods-category">{{ title }} </h2>
+
     {% if basketlist %}
     {% for b in basketlist %}
-    <div class="goods-item">
-        {% if b.product.image %}
-        <img src="{{ b.product.image.url }}" alt="" class="goods-item__img">
-        {% endif %}
-        <div class="goods-item__txt">
-            <span class="goods-item__name">{{ b.product.name }}</span>
-            <p class="goods-item__desc">Количество: {{b.qty}} </p>
-            <input name="{{ b.id }}" type="number" value="{{b.qty}}" min="0">
-
-            <a href="#" class="goods-item__btn">Подробнее</a>
-        </div>
-        {% endfor %}
-        {% else %}
-        <p class="goods-item__desc">Ваша корзина пуста! </p>
-        {% endif %}
+    <div class="card" style="width: 18rem;">
+    {% if b.product.image %}
+    <img src="{{ b.product.image.url }}" class="card-img-top" alt="...">
+    {% endif %}
+    <div class="card-body">
+    <h5 class="card-title">{{ title }}</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
     </div>
-</div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+<!--<div class="goods">-->
+<!--    <h2 class="goods-category">{{ title }} </h2>-->
+<!--    {% if basketlist %}-->
+<!--    {% for b in basketlist %}-->
+<!--    <div class="goods-item">-->
+<!--        {% if b.product.image %}-->
+<!--        <img src="{{ b.product.image.url }}" alt="" class="goods-item__img">-->
+<!--        {% endif %}-->
+<!--        <div class="goods-item__txt">-->
+<!--            <span class="goods-item__name">{{ b.product.name }}</span>-->
+<!--            <p class="goods-item__desc">Количество: {{b.qty}} </p>-->
+<!--            <input name="{{ b.id }}" type="number" value="{{b.qty}}" min="0">-->
+
+<!--            <a href="#" class="goods-item__btn">Подробнее</a>-->
+<!--        </div>-->
+<!--        {% endfor %}-->
+<!--        {% else %}-->
+<!--        <p class="goods-item__desc">Ваша корзина пуста! </p>-->
+<!--        {% endif %}-->
+<!--    </div>-->
+<!--</div>-->

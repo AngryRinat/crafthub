@@ -93,7 +93,7 @@ aside {
 }
 
 .card-list {
-    display: flex;
+margin: 0 auto;
 }
 
 .goods-detail {

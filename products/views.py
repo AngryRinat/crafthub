@@ -21,9 +21,6 @@ class ProductListView(ListView):
         context['title'] = 'Главная страница'
         return context
 
-    # def get_queryset(self):
-    #
-    #     return Product.objects.all()
 
 
 

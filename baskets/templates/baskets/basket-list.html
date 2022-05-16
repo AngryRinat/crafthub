@@ -1,17 +1,21 @@
 
     {% if basketlist %}
-    {% for b in basketlist %}
-    <div class="card" style="width: 18rem;">
-    {% if b.product.image %}
-    <img src="{{ b.product.image.url }}" class="card-img-top" alt="...">
-    {% endif %}
-    <div class="card-body">
-    <h5 class="card-title">{{ title }}</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
+    <div class="card-list">
+          {% for b in basketlist %}
+          <div class="card" style="width: 18rem;">
+            {% if b.product.image %}
+            <img src="{{ b.product.image.url }}" class="card-img-top" alt="...">
+            {% endif %}
+            <div class="card-body">
+                <h5 class="card-title">{{ title }}</h5>
+                <p class="card-text">{{ b.product.description }}</p>
+                <p class="card-text">Количество: {{b.qty}} </p>
+                <input name="{{ b.id }}" type="number" value="{{b.qty}}" min="0">
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+          </div>
+          {% endfor %}
     </div>
-    </div>
-    {% endfor %}
     {% else %}
     <p class="goods-item__desc">Ваша корзина пуста! </p>
     {% endif %}

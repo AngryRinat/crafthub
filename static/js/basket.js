@@ -1,13 +1,13 @@
 window.onload = function () {
 //    const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value;
 
-    $('.goods').on('click', 'input[type="number"]', function () {
+    $('.card-list').on('click', 'input[type="number"]', function () {
         var t_href = event.target;
 
         $.ajax({
             url: "/baskets/edit/" + t_href.name + "/" + t_href.value + "/",
             success: function (data) {
-                $('.goods').html(data.result);
+                $('.card-list').html(data.result);
             },
 
         });

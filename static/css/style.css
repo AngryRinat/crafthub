@@ -92,6 +92,10 @@ aside {
     width: 300px;
 }
 
+.card-list {
+    display: flex;
+}
+
 .goods-detail {
     margin: 0 auto;
 }

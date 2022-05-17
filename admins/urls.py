@@ -5,6 +5,7 @@ from admins.views import *
 app_name = 'admins'
 
 urlpatterns = [
-    path('', users_read, name='users_read'),
-    # path('users_create/', users_create, name='users_create'),
+    path('', AdminsIndexView.as_view(), name='admins_index'),
+    path('users_read', AdminsUserView.as_view(), name='users_read'),
+    path('users_create', admins_create_user, name='users_create'),
 ]

@@ -3,16 +3,24 @@
 
 {% block content %}
 <div class="card-list">
-{% for u in users %}
+{% for u in object_list %}
 <div class="goods-item">
     <div class="goods-item__txt">
         <span class="goods-item__name">{{ u.username }}</span>
         <p class="goods-item__desc">{{u.first_name}} </p>
         <span class="goods-item__name">{{ u.last_name }}</span>
         <p class="goods-item__desc">{{u.email}} </p>
-        <a href="{{ p.get_absolute_url }}" class="goods-item__btn">Подробнее</a>
+        <a href="{{ p.get_absolute_url }}" class="goods-item__btn">Удалить пользователя</a>
     </div>
 </div>
 {% endfor %}
 </div>
+
+
+<div class="card-list">
+<a href="{% url 'admins:users_create' %}" class="goods-item__btn">Создать пользователя</a>
+</div>
+
+
 {% endblock %}
+

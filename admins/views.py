@@ -18,15 +18,16 @@ class AdminsUserView(ListView):
 
 
 def admins_create_user(request):
-    # if request.method == 'POST':
-    #     form = UserRegistrationForm(data=request.POST, files=request.FILES)
-    #     if form.is_valid():
-    #         form.save()
-    #         return HttpResponseRedirect(reverse('admins:users_create'))
-    # else:
-    # form = UserRegistrationForm()
-    # context = {'title': 'Admin', 'form': form}
-    return render(request, 'admins/users_create.html')
+    if request.method == 'POST':
+        form = UserRegistrationForm(data=request.POST, files=request.FILES)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse('admins:users_create'))
+    else:
+        form = UserRegistrationForm()
+
+    context = {'title': 'Admin', 'form': form}
+    return render(request, 'admins/users_create.html', context)
 
 
 class AdminsDeleteView(DeleteView):

@@ -19,10 +19,13 @@ class AdminsUserView(ListView):
 
 def admins_create_user(request):
     if request.method == 'POST':
+
         form = UserRegistrationForm(data=request.POST, files=request.FILES)
+        print(form.errors)
         if form.is_valid():
+            print('valid')
             form.save()
-            return HttpResponseRedirect(reverse('admins:users_create'))
+            return HttpResponseRedirect(reverse('admins:admins_index'))
     else:
         form = UserRegistrationForm()
 

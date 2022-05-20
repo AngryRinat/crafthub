@@ -3,6 +3,10 @@
 {% block content %}
     <main>
         <div class="container-fluid">
+            {% if form.errors %}
+            <h1 class="mt-4">{{ form.errors }}</h1>
+            {% endif %}
+
             <h1 class="mt-4">Редактирование пользователя  {{ user.username }}</h1>
             <div class="card-body">
                 <form action="{% url 'admins:users_create' %}" method="post" enctype="multipart/form-data">

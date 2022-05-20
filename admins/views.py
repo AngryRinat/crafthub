@@ -37,6 +37,42 @@ class AdminsDeleteView(DeleteView):
     model = User
     template_name = 'admins/users_delete.html'
 
+
+
+class UserDeleteView(DeleteView):
+    model = User
+    template_name = 'admins/users_read.html'
+    success_url = reverse_lazy('admins:admin_index')
+
+
+    def delete(self, request, *args, **kwargs):
+        self.object = self.get_object()
+        self.object.is_active = False
+        self.object.save()
+        return HttpResponseRedirect(self.get_success_url())
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # @user_passes_test(lambda u: u.is_superuser)
 # def index(request):
 #     return render(request, 'admins/base.html')
@@ -70,13 +106,3 @@ class AdminsDeleteView(DeleteView):
 #     success_url = reverse_lazy('admins:admin_users')
 #
 #
-# class UserDeleteView(DeleteView):
-#     model = User
-#     template_name = 'admins/admin-users-update-delete.html'
-#     success_url = reverse_lazy('admins:admin_users')
-#
-#     def delete(self, request, *args, **kwargs):
-#         self.object = self.get_object()
-#         self.object.is_active = False
-#         self.object.save()
-#         return HttpResponseRedirect(self.get_success_url())

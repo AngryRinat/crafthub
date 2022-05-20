@@ -10,7 +10,7 @@
         <p class="goods-item__desc">{{u.first_name}} </p>
         <span class="goods-item__name">{{ u.last_name }}</span>
         <p class="goods-item__desc">{{u.email}} </p>
-        <a href="{{ p.get_absolute_url }}" class="goods-item__btn">Удалить пользователя</a>
+        <a href="{% url 'admins:users_delete' %}" class="goods-item__btn">Удалить пользователя</a>
     </div>
 </div>
 {% endfor %}

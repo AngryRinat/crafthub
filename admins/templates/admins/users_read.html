@@ -10,8 +10,19 @@
         <p class="goods-item__desc">{{u.first_name}} </p>
         <span class="goods-item__name">{{ u.last_name }}</span>
         <p class="goods-item__desc">{{u.email}} </p>
-        <a href="{% url 'admins:users_delete' %}" class="goods-item__btn">Удалить пользователя</a>
-    </div>
+
+        <div class="row">
+                    <div class="col-lg-12" style="margin-top: 33px;">
+                        <form action="{% url 'admins:users_delete' u.id %}" method="post">
+                            {% csrf_token %}
+                            <input type="submit" class="btn btn-danger btn-block" value="Удалить">
+                        </form>
+                    </div>
+                </div>
+
+
+
+     </div>
 </div>
 {% endfor %}
 </div>

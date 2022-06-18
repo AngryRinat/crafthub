@@ -1,7 +1,7 @@
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse_lazy, reverse
-from django.views.generic import TemplateView, ListView, CreateView, DeleteView
+from django.views.generic import TemplateView, ListView, CreateView, DeleteView, UpdateView
 from users.models import User
 from users.forms import UserRegistrationForm
 
@@ -33,76 +33,12 @@ def admins_create_user(request):
     return render(request, 'admins/users_create.html', context)
 
 
-class AdminsDeleteView(DeleteView):
-    model = User
-    template_name = 'admins/users_delete.html'
-
-
-
-class UserDeleteView(DeleteView):
+class UserDeleteView(UpdateView):
     model = User
     template_name = 'admins/users_read.html'
-    success_url = reverse_lazy('admins:admin_index')
-
+    success_url = reverse_lazy('products:index')
 
     def delete(self, request, *args, **kwargs):
         self.object = self.get_object()
-        self.object.is_active = False
-        self.object.save()
-        return HttpResponseRedirect(self.get_success_url())
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# @user_passes_test(lambda u: u.is_superuser)
-# def index(request):
-#     return render(request, 'admins/base.html')
-#
-#
-# class UserListView(ListView):
-#     model = User
-#     template_name = 'admins/users_read.html'
-#
-#     def get_context_data(self, *, object_list=None, **kwargs):
-#         context = super(UserListView, self).get_context_data(**kwargs)
-#         context['title'] = 'GeekShop - Админ | Пользователи'
-#         return context
-#
-#     @method_decorator(user_passes_test(lambda u: u.is_superuser))
-#     def dispatch(self, request, *args, **kwargs):
-#         return super(UserListView, self).dispatch(request, *args, **kwargs)
-
-
-# class UserCreateView(CreateView):
-#     model = User
-#     template_name = 'admins/admin-users-create.html'
-#     form_class = UserAdminRegisterForm
-#     success_url = reverse_lazy('admins:admin_users')
-#
-#
-# class UserUpdateView(UpdateView):
-#     model = User
-#     template_name = 'admins/admin-users-update-delete.html'
-#     form_class = UserAdminProfileForm
-#     success_url = reverse_lazy('admins:admin_users')
-#
-#
+        self.object.safe_delete()
+        return HttpResponseRedirect(self.success_url)

@@ -1,0 +1,10 @@
+{% extends 'admins/base.html' %}
+{% load static %}
+
+{% block content %}
+    {%  for c in object_list %}
+    <div class="goods-item__txt">
+        <span class="goods-item__name">{{ c.name }}</span>
+    </div>
+    {% endfor %}
+ {% endblock %}

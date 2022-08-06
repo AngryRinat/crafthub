@@ -34,7 +34,7 @@
             {% if user.is_superuser %}
             <a href="{% url 'admins:users_read' %}" class="goods-item__btn">Пользователи</a>
             {% endif %}
-            <a href="#" class="goods-item__btn">Категории</a>
+             <a href="{% url 'admins:admins_category' %}" class="goods-item__btn">Категории</a>
             <a href="#" class="goods-item__btn">Товары</a>
 
         </aside>

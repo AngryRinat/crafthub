@@ -4,10 +4,11 @@ from django.urls import reverse_lazy, reverse
 from django.views.generic import TemplateView, ListView, CreateView, DeleteView, UpdateView
 from users.models import User
 from users.forms import UserRegistrationForm
+from products.models import Category
 
 
 class AdminsIndexView(TemplateView):
-    template_name = 'admins/index.html'
+    template_name = 'admins/base.html'
     title = 'Админка'
 
 
@@ -39,3 +40,8 @@ def admin_user_delete(request,pk):
     user.save()
     return HttpResponseRedirect(reverse('admins:admins_index'))
 
+
+class AdminCategories(ListView):
+    model = Category
+    template_name = 'admins/admin_categories.html'
+    title = 'Категории'
